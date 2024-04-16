@@ -14,15 +14,34 @@ public class GraphDFS
      */
     public GraphDFS()
     {
+        // Initialize the adjacency matrix
+        // Initialize the list of vertices
     }
     
     public static void DFS(int u)
     {
+        v[u].setColor('g');
+        System.out.println(v[u].getLabel());
+        SLList adjList = v[u].getAdjList();
+        for(int i=0;i<adjList.getLength();i++)
+        {
+            int w = adjList.get(i).getData();
+            if(v[w].getColor()=='w')
+            {
+                DFS(w);
+            }
+        }
+        v[u].setColor('b');
+
 
     }
     
     public static void DFS_Initialize()
     {
+        for(int i=0;i<n;i++)
+        {
+            v[i].setColor('w');
+        }
 
     }
     

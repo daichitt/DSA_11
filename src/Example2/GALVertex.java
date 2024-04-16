@@ -14,36 +14,39 @@ public class GALVertex
      */
     public GALVertex(char label)
     {
-
+        this.label = label;
+        this.color = 'w';
+        adjList = new SLList();
     }
     
     public char getLabel()
     {
-
+        return label;
     }
     
     public void setLabel(char label)
     {
-
+        this.label = label;
     }
     
     public char getColor()
     {
-
+        return color;
     }
     
     public void setColor(char color)
     {
-
+        this.color = color;
     }
     
     public void addToAdjList(int vertex)
     {
-
+//        adjList.add(vertex);//
+        adjList.add(new SLNode(vertex));
     }
     
     public SLList getAdjList()
     {
-
+        return adjList;
     }
 }

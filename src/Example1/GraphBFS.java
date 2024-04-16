@@ -23,10 +23,29 @@ public class GraphBFS
      */
     public GraphBFS()
     {
+        // Initialize the adjacency matrix
+        // Initialize the list of vertices
     }
     
     public static void BFS(int s)
     {
+        ArrayQueue q = new ArrayQueue();
+        v[s].setColor('g');
+        q.enqueue(s);
+        while(!q.isEmpty())
+        {
+            int u = q.dequeue();
+            System.out.println(v[u].getLabel());
+            for(int i=0;i<n;i++)
+            {
+                if(a[u][i]==1 && v[i].getColor()=='w')
+                {
+                    v[i].setColor('g');
+                    q.enqueue(i);
+                }
+            }
+            v[u].setColor('b');
+        }
 
     }
     

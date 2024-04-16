@@ -17,7 +17,9 @@ public class ArrayQueue
      */
     public ArrayQueue()
     {
-
+        items = new int[maxSize]; //Create an array of maxSize elements
+        front = 0; //Initialize front
+        rear = -1; //Initialize rear
     }
 
     /**
@@ -25,7 +27,10 @@ public class ArrayQueue
      */    
     public boolean isEmpty()
     {
-
+        if(front>rear)
+            return true;
+        else
+            return false;
     }
     
     /**
@@ -33,7 +38,10 @@ public class ArrayQueue
      */    
     public boolean isFull()
     {
-
+        if(rear==maxSize-1)
+            return true;
+        else
+            return false;
     }
     
     /**
@@ -41,6 +49,13 @@ public class ArrayQueue
      */        
     public void enqueue(int newItem)
     {
+        if(isFull())
+            System.out.println("Queue is full");
+        else
+        {
+            rear++; // move rear to the next position
+            items[rear]=newItem; // add newItem to the rear position
+        }
 
     }
 
@@ -49,6 +64,17 @@ public class ArrayQueue
      */    
     public int dequeue()
     {
+        if(isEmpty())
+        {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        else
+        {
+            int item = items[front]; // get the item at the front position
+            front++; // move front to the next position
+            return item;
+        }
 
     }
     
@@ -57,6 +83,15 @@ public class ArrayQueue
      */        
     public int peek()
     {
+        if(isEmpty())
+        {
+            System.out.println("Queue is empty");
+            return -1;
+        }
+        else
+        {
+            return items[front];
+        }
 
     }
 }

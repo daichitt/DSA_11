@@ -15,7 +15,7 @@ public class SLList
      */
     public SLList()
     {
-
+        head = null; // Initialize head to null
     }
 
     /**
@@ -24,8 +24,7 @@ public class SLList
 
     public boolean isEmpty()
     {
-
-
+        return head==null;
     }
 
     /**
@@ -33,6 +32,12 @@ public class SLList
      */    
     private SLNode traversing(int pos)
     {
+        SLNode temp = head;
+        for(int i=0;i<pos;i++)
+        {
+            temp = temp.getNext();
+        }
+        return temp;
 
     }
     
@@ -42,7 +47,8 @@ public class SLList
     
     public void add(SLNode newNode)
     {
-
+        newNode.setNext(head);
+        head = newNode;
     }
     
     /**
@@ -50,7 +56,7 @@ public class SLList
      */    
     public SLNode get(int pos)
     {
-
+        return traversing(pos);
     }
 
     /**
@@ -58,6 +64,13 @@ public class SLList
      */    
     public int getLength()
     {
-
+        SLNode temp = head;
+        int count = 0;
+        while(temp!=null)
+        {
+            count++;
+            temp = temp.getNext();
+        }
+        return count;
     }    
 }

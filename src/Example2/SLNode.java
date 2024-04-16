@@ -17,7 +17,8 @@ public class SLNode
      */
     public SLNode(int data)
     {
-
+        this.data = data; // Assign data to the input string (data)
+        this.next = null; // Initialize next to null
     }
 
     /**
@@ -25,7 +26,7 @@ public class SLNode
      */    
     public void setNext(SLNode next)
     {
-
+        this.next = next;
     }
 
     /**
@@ -33,7 +34,7 @@ public class SLNode
      */    
     public SLNode getNext()
     {
-
+        return next;
     }
 
     /**
@@ -41,7 +42,7 @@ public class SLNode
      */        
     public void setData(int data)
     {
-
+        this.data = data;
     }
 
     /**
@@ -49,6 +50,6 @@ public class SLNode
      */        
     public int getData()
     {
-
+        return data;
     }    
 }
