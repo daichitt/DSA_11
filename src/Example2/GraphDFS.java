@@ -20,27 +20,31 @@ public class GraphDFS
     
     public static void DFS(int u)
     {
-        v[u].setColor('g');
-        System.out.println(v[u].getLabel());
-        SLList adjList = v[u].getAdjList();
-        for(int i=0;i<adjList.getLength();i++)
-        {
-            int w = adjList.get(i).getData();
-            if(v[w].getColor()=='w')
-            {
+        v[u].setColor('Y'); // U is current Vertex
+        System.out.print(v[u].getLabel() + " ");
+        SLList adjListU = v[u].getAdjList();
+//        for(int i=0; i < adjListU.getLength(); i++) {
+//            int w = adjListU.get(i).getData();
+//            if(v[w].getColor() == 'B') { // not visited
+//                DFS(w);
+//            }
+//        }
+//        v[u].setColor('Y');
+        SLNode current = adjListU.get(0);
+        while (current != null) {
+            int w = current.getData();
+            if(v[w].getColor() == 'B') { // not visited
                 DFS(w);
             }
+            current = current.getNext();
         }
-        v[u].setColor('b');
-
 
     }
     
     public static void DFS_Initialize()
     {
-        for(int i=0;i<n;i++)
-        {
-            v[i].setColor('w');
+        for(int i=0;i<n;i++) {
+            v[i].setColor('B');
         }
 
     }
@@ -49,7 +53,7 @@ public class GraphDFS
     {
         v = new GALVertex[n];     //Create an empty list of n vertices
         // Initialize vertex's label
-        v[0]=new GALVertex('A');  v[0].addToAdjList(1); v[0].addToAdjList(4);
+        v[0]=new GALVertex('A');  v[0].addToAdjList(1); v[0].addToAdjList(4); //  addToAdjList 隣接
         v[1]=new GALVertex('B');  v[1].addToAdjList(0); v[1].addToAdjList(2); v[1].addToAdjList(6);
         v[2]=new GALVertex('C');  v[2].addToAdjList(1); v[2].addToAdjList(5);   
         v[3]=new GALVertex('D');  v[3].addToAdjList(4); v[3].addToAdjList(5);

@@ -15,13 +15,13 @@ public class GALVertex
     public GALVertex(char label)
     {
         this.label = label;
-        this.color = 'w';
+        this.color = 'B'; // init black
         adjList = new SLList();
     }
     
     public char getLabel()
     {
-        return label;
+        return this.label;
     }
     
     public void setLabel(char label)
@@ -31,7 +31,7 @@ public class GALVertex
     
     public char getColor()
     {
-        return color;
+        return this.color;
     }
     
     public void setColor(char color)
@@ -42,11 +42,12 @@ public class GALVertex
     public void addToAdjList(int vertex)
     {
 //        adjList.add(vertex);//
-        adjList.add(new SLNode(vertex));
+        SLNode node = new SLNode(vertex);
+        adjList.add(node);
     }
     
     public SLList getAdjList()
     {
-        return adjList;
+        return this.adjList;
     }
 }

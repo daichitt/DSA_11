@@ -34,7 +34,7 @@ public class SLNode
      */    
     public SLNode getNext()
     {
-        return next;
+        return this.next;
     }
 
     /**
@@ -50,6 +50,6 @@ public class SLNode
      */        
     public int getData()
     {
-        return data;
+        return this.data;
     }    
 }
