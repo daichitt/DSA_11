@@ -14,13 +14,15 @@ public class GVertex
     public GVertex(char label)
     {
         this.label = label;
-        this.color = 'w';
-        // this.color = 'w';
+        this.color = 'B'; // init Black
     }
+    // B = not visited
+    // Y = visited already
+    // color use status of Vertex weather visited of not visited
     
     public char getLabel()
     {
-        return label;
+        return this.label;
     }
     
     public void setLabel(char label)
@@ -30,7 +32,7 @@ public class GVertex
     
     public char getColor()
     {
-        return color;
+        return this.color;
     }
     
     public void setColor(char color)
